@@ -5,10 +5,12 @@ gem 'omniauth-google-oauth2'
 
 group :assets do
   gem 'sass-rails'
-  gem "compass-rails"
   gem 'coffee-rails'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier'
+
+  gem "compass-rails"
+  gem "zurb-foundation"
 end
 
 gem 'jquery-rails'
@@ -17,5 +19,4 @@ gem "pg"
 gem "rspec-rails", :group => [:development, :test]
 gem "shoulda-matchers", :group => [:development, :test]
 gem "factory_girl_rails", :group => [:development, :test]
-gem "zurb-foundation", :group => :assets
 gem "devise"
