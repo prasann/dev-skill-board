@@ -187,6 +187,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   jquery-rails
+  omniauth
   omniauth-google-oauth2
   pg
   rails (= 3.2.8)
