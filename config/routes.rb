@@ -4,5 +4,6 @@ Dashboard::Application.routes.draw do
   match "/auth/failure", to: "sessions#failure"
   match "/logout", to: "sessions#destroy", :as => "logout"
 
+  resources :users
   get '/:user_name' => 'users#show', :as => 'vanity_url'
 end
