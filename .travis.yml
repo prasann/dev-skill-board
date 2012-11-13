@@ -3,4 +3,4 @@ rvm:
   - 1.9.3
 before_script:
   - psql -c 'create database test_dashboard;' -U postgres
-script: bundle exec rake spec
+script: bundle exec rake db:migrate spec
