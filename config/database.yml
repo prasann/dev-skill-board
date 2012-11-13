@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: dev_dashboard
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: test_dashboard
+  host: localhost
+  min_messages: WARNING
+
+production:
+  adapter: postgresql
+  database: prod_dashboard
+  host: localhost
