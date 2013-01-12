@@ -1,3 +1,4 @@
+<% @user = current_user if @user.nil? %>
 <h1>User Profile</h1>
 <p>
   <strong>Name:</strong>
@@ -15,5 +16,6 @@
   <strong>OmniAuth UID:</strong>
   <%= @user.uid %>
 </p>
+<%= link_to "Link GitHub Account", "/auth/github", :class => "btn btn-primary" %>
 <p><%= link_to "Edit", edit_user_path(@user.id)%></p>
 <p><%= link_to "Log out", logout_path %></p>
