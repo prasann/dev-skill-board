@@ -1,9 +1,4 @@
 Dashboard::Application.routes.draw do
   root :to => 'sessions#new'
-  match "/auth/google_oauth2/callback", to: "sessions#create"
-  match "/auth/failure", to: "sessions#failure"
-  match "/logout", to: "sessions#destroy", :as => "logout"
-
-  resources :users
-  get '/:user_name' => 'users#show', :as => 'vanity_url'
+  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout", :sign_up => "register"}, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 end

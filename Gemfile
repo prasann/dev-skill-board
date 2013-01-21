@@ -1,11 +1,12 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 3.2"
+gem "devise"
 gem "omniauth-google-oauth2"
 gem "jquery-rails"
 gem "thin"
 gem "pg"
-gem "devise"
+gem "rest-client"
 
 group :assets do
   gem "sass-rails"
@@ -19,4 +20,5 @@ group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "factory_girl_rails"
+  gem "pry"
 end
