@@ -7,6 +7,7 @@ gem "jquery-rails"
 gem "thin"
 gem "pg"
 gem "rest-client"
+gem "github_api"
 
 group :assets do
   gem "sass-rails"
