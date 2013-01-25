@@ -8,6 +8,7 @@ gem "thin"
 gem "pg"
 gem "rest-client"
 gem "github_api"
+gem "rails_config"
 
 group :assets do
   gem "sass-rails"

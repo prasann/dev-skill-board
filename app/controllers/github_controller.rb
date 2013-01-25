@@ -1,5 +1,8 @@
 class GithubController < ApplicationController
+  CALL_BACK_URL = 'http://localhost:3000/github/callback'
+
   def success
+    p Settings.github_id
     access_token = Site.access_token_for(Site::GITHUB)
     github = Github.new :oauth_token => access_token
     render :json => github.repos.list
@@ -7,16 +10,17 @@ class GithubController < ApplicationController
 
   def authorize
     redirect_to github_success_path and return if Site.is_access_token_present?(Site::GITHUB)
-    @github = Github.new :client_id => '6865696a3b44618cb40d', :client_secret => '3014399db1e723407f057c67e3df94b91830f52f'
-    address = @github.authorize_url :redirect_uri => 'http://localhost:3000/github/callback', :scope => 'repo'
-    redirect_to address
+    redirect_to github_instance.authorize_url :redirect_uri => CALL_BACK_URL, :scope => 'repo'
   end
 
   def callback
-    @github = Github.new :client_id => '6865696a3b44618cb40d', :client_secret => '3014399db1e723407f057c67e3df94b91830f52f'
-    authorization_code = params[:code]
-    token = @github.get_token authorization_code
+    token = github_instance.get_token params[:code]
     Site.persist_provider(Site::GITHUB, token.token)
     redirect_to github_success_path
+  end
+
+  private
+  def github_instance
+    Github.new :client_id => Settings.github_id, :client_secret => Settings.github_secret
   end
 end
