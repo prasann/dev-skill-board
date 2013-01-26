@@ -6,7 +6,7 @@
 </div>
 
 <% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>
-    <a href="/github/profile" class="btn"> View GitHub Info </a>
+    <%= link_to "View Github Info", github_profile_path, :class => "btn btn-primary" %>
 <% else %>
-    <a href="/github/authorize" class="btn btn-primary"> Authorize GitHub </a>
+    <%= link_to "Authorize GitHub", github_authorize_path, :class => "btn btn-primary" %>
 <% end %>
