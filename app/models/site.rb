@@ -1,5 +1,7 @@
 class Site < ActiveRecord::Base
-  GITHUB = "github"
+  PROVIDERS = {
+      :github => "Github"
+  }
 
   def self.persist_provider(provider, access_token)
     Site.create!({

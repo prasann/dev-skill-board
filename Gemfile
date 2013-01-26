@@ -22,5 +22,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "factory_girl_rails"
+  gem "database_cleaner"
+  gem "faker"
   gem "pry"
 end
