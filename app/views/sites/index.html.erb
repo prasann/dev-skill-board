@@ -5,4 +5,8 @@
   The rest of the work is in progress.
 </div>
 
-<a href="/github/authorize" class="btn btn-primary">Add GitHub</a>
+<% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>
+    <a href="/github/profile" class="btn"> View GitHub Info </a>
+<% else %>
+    <a href="/github/authorize" class="btn btn-primary"> Authorize GitHub </a>
+<% end %>

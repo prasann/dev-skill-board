@@ -8,4 +8,5 @@ Dashboard::Application.routes.draw do
   match 'github/authorize', :to => 'github#authorize'
   match 'github/callback', :to => 'github#callback'
   match 'github/success', :to => 'github#success'
+  match 'github/profile', :to => 'github#profile'
 end

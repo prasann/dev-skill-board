@@ -1,12 +1,15 @@
 class GithubController < ApplicationController
   CALL_BACK_URL = 'http://localhost:3000/github/callback'
 
+  def profile
+    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
+  end
   def success
     access_token = Site.access_token_for(Site::PROVIDERS[:github])
     github = Github.new :oauth_token => access_token
     repo_json = github.repos.list
     GithubRepos.create(repo_json)
-    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
+    redirect_to github_profile_path
   end
 
   def authorize
