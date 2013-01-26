@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130126112907) do
 
   create_table "github_repos", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "repo_id"
     t.string   "name"
     t.integer  "forks"
     t.string   "owner"

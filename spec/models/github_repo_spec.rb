@@ -6,8 +6,8 @@ describe GithubRepo do
       fake_sign_in
     end
     it "should create github repo from hash" do
-      repo_json = File.read(File.join(Rails.root, "spec/data/single_repo.json"))
-      repo_hash = ActiveSupport::JSON.decode(repo_json)
+      repo_string = File.read(File.join(Rails.root, "spec/data/single_repo.json"))
+      repo_hash = ActiveSupport::JSON.decode(repo_string)
       expect {
         GithubRepo.create_from_hash(repo_hash)
       }.to change(GithubRepo, :count).by(1)

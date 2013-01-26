@@ -6,7 +6,7 @@ class GithubController < ApplicationController
     github = Github.new :oauth_token => access_token
     repo_json = github.repos.list
     GithubRepos.create(repo_json)
-    render :json => repo_json
+    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
   end
 
   def authorize
