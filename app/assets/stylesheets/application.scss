@@ -12,3 +12,17 @@
  *= require bootstrap
  *= require_tree .
  */
+
+#sign_in_div {
+  position:fixed;
+  background-color: #AAAAAA;
+  width: 100%;
+  top: 25%;
+  min-height: 50%;
+  #section {
+    position: absolute;
+    left: 70%;
+    margin-right: -10%;
+    margin-top: 1%;
+  }
+}
