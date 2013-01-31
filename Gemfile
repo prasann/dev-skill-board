@@ -9,6 +9,7 @@ gem "pg"
 gem "rest-client"
 gem "github_api"
 gem "rails_config"
+gem 'dynamic_form'
 
 group :assets do
   gem "sass-rails"

@@ -1,5 +1,6 @@
 Dashboard::Application.routes.draw do
-  root :to => 'sites#index'
+  root :to => 'profiles#show'
+  resources :profiles, :except => [:index]
   resources :sites
 
   devise_for :users,

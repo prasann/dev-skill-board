@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126112907) do
+ActiveRecord::Schema.define(:version => 20130131175621) do
 
   create_table "github_repos", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20130126112907) do
     t.string   "owner"
     t.string   "language"
     t.integer  "watchers"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "contact_no"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -7,9 +7,11 @@ class ApplicationController < ActionController::Base
     User.current=current_user
   end
 
+
   private
   def layout
     return "devise" if devise_controller?
     "application"
   end
+
 end

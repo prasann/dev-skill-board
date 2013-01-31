@@ -1,0 +1,13 @@
+<%= form_for @profile do |f| %>
+    <%= f.error_messages %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.label :contact_no %>
+    <%= f.phone_field :contact_no %>
+    <%= f.submit %>
+<% end %>
+
