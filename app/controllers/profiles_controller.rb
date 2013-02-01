@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   before_filter :load_profile, :only => [:edit, :update, :delete]
+  skip_filter :create_profile, :only => [:new, :create]
+
 
   def new
     @profile = Profile.new({
@@ -18,7 +20,9 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by_user_id(current_user.id)
-    redirect_to new_profile_path if @profile.nil?
+    redirect_to new_profile_path and return if @profile.nil?
+    @providers = @profile.sites.collect(&:provider) if @profile.sites.present?
+    session[:profile_id]=@profile.id
   end
 
   def edit

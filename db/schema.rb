@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130131175621) do
   end
 
   create_table "sites", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.string   "provider"
     t.string   "access_token"
     t.datetime "created_at",   :null => false
