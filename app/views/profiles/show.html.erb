@@ -2,6 +2,7 @@
 <div><%= @profile.user_name %></div>
 <div><%= @profile.contact_no %></div>
 <div><%= @profile.email %></div>
+<%= link_to "edit", edit_profile_path(@profile) %>
 <% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>
     <%= link_to "View Github Info", github_profile_path, :class => "btn btn-primary" %>
 <% else %>

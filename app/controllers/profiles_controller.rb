@@ -19,10 +19,13 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find_by_user_id(current_user.id)
-    redirect_to new_profile_path and return if @profile.nil?
+    redirect_to new_profile_path and return if no_profile_found
+    @profile = Profile.find_by_user_name(params[:username]) if params[:username].present?
     @providers = @profile.sites.collect(&:provider) if @profile.sites.present?
-    session[:profile_id]=@profile.id
+  end
+
+  def no_profile_found
+    params[:username].nil?
   end
 
   def edit
@@ -44,7 +47,7 @@ class ProfilesController < ApplicationController
 
   private
   def load_profile
-    @profile = Profile.find(params[:profile_id])
+    @profile = Profile.find(params[:id]) if params[:id].present?
   end
 
 end
