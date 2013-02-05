@@ -1,3 +1,45 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#image_container {
+  overflow: hidden;
+  height: 280px;
+
+  #profile_card {
+    color: #ffffff;
+    background-image: url(image_path('profile_bg.png'));
+    background-repeat: repeat;
+    position: absolute;
+    width: 25%;
+    margin-left: 15%;
+    margin-top: 4%;
+    border-radius: 5px;
+    #profile_image {
+      float: left;
+      padding: 10px;
+      height: 128px;
+      width: 128px;
+    }
+    #profile_name {
+      font-size: 140%;
+      font-weight: bold;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      line-height: 1.5;
+    }
+  }
+  #cover_pic {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    #cover_image {
+      border-radius: 10px;
+      height: 280px;
+      width: 100%;
+    }
+  }
+}
+
+#contact_us{
+  padding: 5px;
+}

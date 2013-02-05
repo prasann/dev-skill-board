@@ -1,6 +1,18 @@
+<div id="image_container">
+  <div id="profile_card">
+    <%= image_tag("no_profile.jpg", :id => 'profile_image') %>
+    <div id="profile_name"><%= @profile.name %></div>
+  </div>
+  <div id="cover_pic">
+    <%= image_tag("cover.jpg", :id => 'cover_image') %>
+  </div>
+</div>
+<div id="contact_us">
+  <div><%= @profile.contact_no %></div>
+</div>
+
 <div><%= @profile.name %></div>
 <div><%= @profile.user_name %></div>
-<div><%= @profile.contact_no %></div>
 <div><%= @profile.email %></div>
 <%= link_to "edit", edit_profile_path(@profile) %>
 <% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>

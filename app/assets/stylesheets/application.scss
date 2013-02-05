@@ -13,16 +13,40 @@
  *= require_tree .
  */
 
+body {
+  background-image: url(image_path('body_bg.png'));
+  background-repeat: repeat;
+}
+
+#content_area {
+  background: white repeat;
+}
+
 #sign_in_div {
   position: fixed;
-  background: white;
   width: 100%;
   top: 25%;
   min-height: 50%;
   #section {
+    background-color: white;
+    box-shadow: 10px 10px 5px #888;
+    border: 2px solid #000000;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 50px;
     position: absolute;
-    left: 60%;
+    left: 35%;
     margin-right: -10%;
     margin-top: 1%;
+  }
+}
+
+.container {
+  -webkit-box-shadow: 0 0 10px #888;
+  box-shadow: 0 0 10px #888;
+  -moz-box-shadow: 0px 0px 10px #888;
+  min-height: 750px;
+  .contents {
+    padding: 0 5px 5px 5px;
   }
 }
