@@ -1,6 +1,9 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.edit_container{
+  float: right;
+}
 #image_container {
   overflow: hidden;
   height: 280px;
@@ -13,6 +16,7 @@
     margin-left: 15%;
     margin-top: 4%;
     border-radius: 5px;
+    -moz-border-radius: 5px;
     #profile_image {
       float: left;
       padding: 10px;
@@ -32,6 +36,7 @@
     padding-right: 10px;
 
     #cover_image {
+      -moz-border-radius: 10px;
       border-radius: 10px;
       height: 280px;
       width: 100%;
@@ -40,22 +45,46 @@
 }
 
 #about {
-  color:#ffffff;
+  color: #ffffff;
   height: auto;
   margin: 5px 15px;
   padding: 10px;
   border-radius: 10px;
+  -moz-border-radius: 10px;
   background: url(image_path('profile_bg.png')) repeat;
   .phone_container {
-    float:left;
+    float: left;
     .phone {
       padding-right: 5px;
     }
   }
   .email_container {
-    float:right;
+    float: right;
     .mail {
       padding-right: 5px;
     }
+  }
+}
+
+#providers {
+  .unit_provider {
+    margin: 25px;
+    float: left;
+    border: 1px solid #000000;
+    padding: 10px;
+    -webkit-box-shadow: 0 0 15px #888;
+    box-shadow: 0 0 15px #888;
+    -moz-box-shadow: 0px 0px 15px #888;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+  }
+  .status{
+    padding-top: 10px;
+    text-align: center;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
   }
 }
