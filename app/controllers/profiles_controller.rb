@@ -42,6 +42,10 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(@profile)
   end
 
+  def wall
+    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
+  end
+
   rescue_from ActiveRecord::RecordInvalid do
     render :edit
   end

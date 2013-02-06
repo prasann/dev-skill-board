@@ -13,5 +13,5 @@ Dashboard::Application.routes.draw do
   match 'github/success', :to => 'github#success'
   match 'github/profile', :to => 'github#profile'
   match ':username/profile', :to => 'profiles#show', :as => 'friendly_profile'
-  match ':username', :to => 'profiles#show'
+  match ':username', :to => 'profiles#wall', :as => 'friendly_wall'
 end
