@@ -14,8 +14,7 @@
  */
 
 body {
-  background-image: url(image_path('body_bg.png'));
-  background-repeat: repeat;
+  background: url(image_path('body_bg.png')) repeat;
 }
 
 #content_area {
