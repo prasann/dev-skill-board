@@ -1,22 +1,26 @@
-<div class="edit_container">
-  <%= link_to edit_profile_path(@profile), :class=>'btn' do %>
-      <i class="icon-edit"></i> Edit
-  <% end %>
-</div>
 <div id="image_container">
   <div id="profile_card">
-    <%= image_tag("no_profile.jpg", :id => 'profile_image') %>
+    <%= image_tag(@profile.avatar.url(:medium), :id => 'profile_image') %>
     <div id="profile_name"><%= @profile.name %></div>
   </div>
   <div id="cover_pic">
-    <%= image_tag("cover.jpg", :id => 'cover_image') %>
+    <%= image_tag(@profile.cover_image.url, :id => 'cover_image') %>
   </div>
 </div>
-<div id="about" class="clearfix">
-  <div class="phone_container"><%= image_tag("phone.png", :class => 'phone', :title => "Phone") %><%= @profile.contact_no %></div>
-  <div class="email_container"><%= image_tag("mail.png", :class => 'mail', :title => "E-Mail") %>
-    <a href="mailto:#"><%= @profile.email %></a></div>
+
+<div id="profile_container">
+  <div id="about" class="clearfix">
+    <div class="phone_container"><%= image_tag("phone.png", :class => 'phone', :title => "Phone") %><%= @profile.contact_no %></div>
+    <div class="email_container"><%= image_tag("mail.png", :class => 'mail', :title => "E-Mail") %>
+      <a href="mailto:#"><%= @profile.email %></a></div>
+  </div>
+  <div id="edit_container">
+    <%= link_to edit_profile_path(@profile), :class => 'btn btn-small' do %>
+        <i class="icon-edit"></i> Edit Profile
+    <% end %>
+  </div>
 </div>
+
 <div id="providers">
   <div id="github" class="unit_provider">
     <div class="title">GitHub</div>
