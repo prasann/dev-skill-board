@@ -1,11 +1,13 @@
-<div><h3>Total no. of repos</h3> <%= @gitrepos.length %></div>
-<div><h3>Language Split</h3>
-  <% @gitrepos.group_by(&:language).each_pair do |key, value| %>
-      <% if key.present? %>
-          <div>
-            <%= key %> - <%= value.length %>
-          </div>
-      <% end %>
-  <% end %></div>
-<div><h3>Watchers</h3> <%= @gitrepos.sum(&:watchers) %></div>
-<div><h3>Forks</h3> <%= @gitrepos.sum(&:forks) %></div>
+<div id="wall_container">
+  <div><h3>Total no. of repos</h3> <%= @gitrepos.length %></div>
+  <div><h3>Language Split</h3>
+    <% @gitrepos.group_by(&:language).each_pair do |key, value| %>
+        <% if key.present? %>
+            <div>
+              <%= key %> - <%= value.length %>
+            </div>
+        <% end %>
+    <% end %></div>
+  <div><h3>Watchers</h3> <%= @gitrepos.sum(&:watchers) %></div>
+  <div><h3>Forks</h3> <%= @gitrepos.sum(&:forks) %></div>
+</div>
