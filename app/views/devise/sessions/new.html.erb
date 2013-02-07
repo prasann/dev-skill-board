@@ -1,5 +1,11 @@
 <div id="sign_in_div" class="centered">
   <div id="section">
+    <div id="google_auth_signin">
+      <a href="/users/auth/google_oauth2" class="btn btn-inverse">
+        Sign In with <%= image_tag("google_logo.png") %> account
+      </a>
+    </div>
+    <div id="signin_separator">(Or)</div>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
         <div><%= f.label :email %>
