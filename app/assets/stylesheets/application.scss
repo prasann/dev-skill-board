@@ -21,6 +21,26 @@
   text-align: center;
 }
 
+#error_explanation {
+  background: #CC3300;
+  border: 1px solid #8F1D00;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #ffffff;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  h2 {
+    font-size: 100%;
+  }
+}
+
+#sign_up_div{
+  margin-left:15px;
+}
+
 #signin_separator {
   text-align: center;
   font-size: 125%;
