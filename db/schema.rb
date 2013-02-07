@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20130206155705) do
     t.string   "user_name"
     t.string   "email"
     t.string   "contact_no"
+    t.string   "role"
+    t.string   "city"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.string   "avatar_file_name"
