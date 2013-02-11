@@ -9,7 +9,7 @@ class GithubController < ApplicationController
     github = Github.new :oauth_token => access_token
     repo_json = github.repos.list
     GithubRepos.create(repo_json)
-    redirect_to github_profile_path
+    redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 
   def authorize
