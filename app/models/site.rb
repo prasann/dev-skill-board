@@ -2,7 +2,8 @@ class Site < ActiveRecord::Base
 
   belongs_to :profile
   PROVIDERS = {
-      :github => "Github"
+      :github => "Github",
+      :stackoverflow => "StackOverflow",
   }
 
   def self.persist_provider(provider, access_token)

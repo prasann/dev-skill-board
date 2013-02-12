@@ -1,3 +1,4 @@
+require 'stack_overflow'
 class ProfilesController < ApplicationController
   before_filter :load_profile, :only => [:edit, :update, :delete]
   skip_filter :create_profile, :only => [:new, :create]
@@ -48,6 +49,7 @@ class ProfilesController < ApplicationController
     @gitrepos.group_by(&:language).each_pair do |key,value|
       @language_array << [key,value.length] if key.present?
     end
+    @reputations = StackOverflow.get_user_reputation('419448')
   end
 
   rescue_from ActiveRecord::RecordInvalid do

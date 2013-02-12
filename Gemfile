@@ -6,7 +6,7 @@ gem "omniauth-google-oauth2"
 gem "jquery-rails"
 gem "thin"
 gem "pg"
-gem "rest-client"
+gem "httparty"
 gem "github_api"
 gem "rails_config"
 gem 'dynamic_form'
