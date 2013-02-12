@@ -75,7 +75,7 @@
 }
 
 #providers {
-  clear:both;
+  clear: both;
   .unit_provider {
     margin: 25px;
     float: left;
@@ -95,5 +95,36 @@
     font-size: 120%;
     font-weight: bold;
     text-align: center;
+  }
+}
+
+#wall_container {
+  padding-left: 20px;
+  .charts{
+    clear:both;
+  }
+  .sticky {
+    padding-top: 75px;
+    text-wrap: unrestricted;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 120%;
+    float: left;
+    width: 250px;
+    height: 250px;
+    background: url(image_path('sticky.png')) no-repeat;
+
+    .highlight {
+      margin: 5px;
+      margin-bottom: 25px;
+      font-size: 250%;
+    }
+
+    .text {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 }

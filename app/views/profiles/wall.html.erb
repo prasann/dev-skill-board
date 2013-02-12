@@ -1,13 +1,56 @@
 <div id="wall_container">
-  <div><h3>Total no. of repos</h3> <%= @gitrepos.length %></div>
-  <div><h3>Language Split</h3>
-    <% @gitrepos.group_by(&:language).each_pair do |key, value| %>
-        <% if key.present? %>
-            <div>
-              <%= key %> - <%= value.length %>
-            </div>
-        <% end %>
-    <% end %></div>
-  <div><h3>Watchers</h3> <%= @gitrepos.sum(&:watchers) %></div>
-  <div><h3>Forks</h3> <%= @gitrepos.sum(&:forks) %></div>
+  <div class="sticky">
+    <div class="highlight"><%= @gitrepos.length %></div>
+    public repositories.
+  </div>
+  <div class="sticky">
+    <div class="highlight"><%= @gitrepos.sum(&:watchers) %></div>
+    Watchers
+  </div>
+  <div class="sticky">
+    <div class="highlight"><%= @gitrepos.sum(&:forks) %></div>
+    <div class="text">repositories have been forked out</div>
+  </div>
+  <div class="charts" id="container"></div>
 </div>
+<% javascript_tag %>
+<script type="text/javascript" src="highcharts.js"></script>
+<script type="text/javascript">
+    $(function () {
+        new Highcharts.Chart({
+            chart: {renderTo: 'container'},
+            title: {text: 'Project count based on Programming languages'},
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+                percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'hand',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>: ' + Math.round(this.percentage * 10) / 10 + ' %';
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Language',
+                    data: [
+                        <%@language_array.each do |d|%>
+                            <%=raw d %>,
+                        <%end%>
+                    ]
+                }
+            ]
+        });
+    });
+</script>
+
+

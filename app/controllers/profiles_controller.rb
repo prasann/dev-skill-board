@@ -44,6 +44,10 @@ class ProfilesController < ApplicationController
 
   def wall
     @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
+    @language_array = []
+    @gitrepos.group_by(&:language).each_pair do |key,value|
+      @language_array << [key,value.length] if key.present?
+    end
   end
 
   rescue_from ActiveRecord::RecordInvalid do
