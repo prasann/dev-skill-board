@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206155705) do
+ActiveRecord::Schema.define(:version => 20130213131231) do
 
   create_table "github_repos", :force => true do |t|
     t.integer  "user_id"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20130206155705) do
     t.string   "access_token"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "stack_overflows", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reputation"
+    t.integer  "question_count"
+    t.integer  "answer_count"
+    t.text     "tags"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|

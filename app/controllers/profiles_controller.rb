@@ -1,4 +1,3 @@
-require 'stack_overflow'
 class ProfilesController < ApplicationController
   before_filter :load_profile, :only => [:edit, :update, :delete]
   skip_filter :create_profile, :only => [:new, :create]
@@ -45,11 +44,8 @@ class ProfilesController < ApplicationController
 
   def wall
     @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
-    @language_array = []
-    @gitrepos.group_by(&:language).each_pair do |key,value|
-      @language_array << [key,value.length] if key.present?
-    end
-    @reputations = StackOverflow.get_user_reputation('419448')
+    language_classification
+    stack_overflow_info
   end
 
   rescue_from ActiveRecord::RecordInvalid do
@@ -63,5 +59,16 @@ class ProfilesController < ApplicationController
 
   def current_profile
     Profile.find_by_user_id(current_user.id)
+  end
+
+  def language_classification
+    @language_array = []
+    @gitrepos.group_by(&:language).each_pair do |key, value|
+      @language_array << [key, value.length] if key.present?
+    end
+  end
+
+  def stack_overflow_info
+    @stack_overflow = StackOverflow.find_by_user_id(current_user.id)
   end
 end

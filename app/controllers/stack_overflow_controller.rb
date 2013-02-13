@@ -1,3 +1,4 @@
+require 'stack_overflow'
 class StackOverflowController < ApplicationController
 
   def add
@@ -5,7 +6,13 @@ class StackOverflowController < ApplicationController
 
   def create
     Site.persist_provider(Site::PROVIDERS[:stackoverflow], params[:so_user_id])
-    redirect_to friendly_profile_path(current_user.profile.user_name)
+    redirect_to stack_overflow_stats_path
+  end
+
+  def populate_stats
+    return unless Site.is_access_token_present?(Site::PROVIDERS[:stackoverflow])
+    StackOverflow.create_instance_for(current_user.id)
+    redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 
 end

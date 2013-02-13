@@ -1,6 +1,6 @@
 require 'json'
 
-module StackOverflow
+module StackOverflowAPI
   include HTTParty
   @@URL = "http://api.stackoverflow.com/1.1/"
 
@@ -30,10 +30,12 @@ module StackOverflow
   end
 
   def self.top_answer_tags(user_id)
-    get(@@URL + "users/#{user_id}/top-answer-tags")
+    result = get(@@URL + "users/#{user_id}/top-answer-tags")
+    result["top_tags"]
   end
 
   def self.top_question_tags(user_id)
-    get(@@URL + "users/#{user_id}/top-question-tags")
+    result = get(@@URL + "users/#{user_id}/top-question-tags")
+    result["top_tags"]
   end
 end
