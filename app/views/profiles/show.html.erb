@@ -35,4 +35,15 @@
       <% end %>
     </div>
   </div>
+  <div id="stack-exchange" class="unit_provider">
+    <div class="title">Stack Overflow</div>
+    <%= image_tag("stack-overflow.png", :title => 'StackOverflow', :alt => "StackOverflow") %>
+    <div class="status">
+      <% if @providers.present? and @providers.include?(Site::PROVIDERS[:stackoverflow]) %>
+          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+      <% else %>
+          <%= link_to "Add", stack_overflow_add_path, :class => "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

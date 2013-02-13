@@ -12,6 +12,10 @@ Dashboard::Application.routes.draw do
   match 'github/callback', :to => 'github#callback'
   match 'github/success', :to => 'github#success'
   match 'github/profile', :to => 'github#profile'
+
+  match 'stack_overflow/add', :to => 'stack_overflow#add'
+  post 'stack_overflow/create', :to => 'stack_overflow#create'
+
   match ':username/profile', :to => 'profiles#show', :as => 'friendly_profile'
   match ':username', :to => 'profiles#wall', :as => 'friendly_wall'
 end
