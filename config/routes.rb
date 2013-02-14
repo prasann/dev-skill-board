@@ -18,5 +18,5 @@ Dashboard::Application.routes.draw do
   match 'stack_overflow/stats', :to => 'stack_overflow#populate_stats'
 
   match ':username/profile', :to => 'profiles#show', :as => 'friendly_profile'
-  match ':username', :to => 'profiles#wall', :as => 'friendly_wall'
+  match ':username', :to => 'walls#index', :as => 'friendly_wall'
 end

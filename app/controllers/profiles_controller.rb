@@ -42,12 +42,6 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(@profile)
   end
 
-  def wall
-    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
-    language_classification
-    stack_overflow_info
-  end
-
   rescue_from ActiveRecord::RecordInvalid do
     render :edit
   end
@@ -59,16 +53,5 @@ class ProfilesController < ApplicationController
 
   def current_profile
     Profile.find_by_user_id(current_user.id)
-  end
-
-  def language_classification
-    @language_array = []
-    @gitrepos.group_by(&:language).each_pair do |key, value|
-      @language_array << [key, value.length] if key.present?
-    end
-  end
-
-  def stack_overflow_info
-    @stack_overflow = StackOverflow.find_by_user_id(current_user.id)
   end
 end
