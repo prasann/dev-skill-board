@@ -29,10 +29,10 @@ function init_high_charts() {
     });
 }
 
-function draw_language_chart() {
-    chart = new Highcharts.Chart({
-        chart: {renderTo: 'container'},
-        title: {text: 'Project count based on Programming languages'},
+function draw_chart(container_name, title, series_name, series_data) {
+    new Highcharts.Chart({
+        chart: {renderTo: container_name},
+        title: {text: title},
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage}%</b>',
             percentageDecimals: 1
@@ -54,20 +54,12 @@ function draw_language_chart() {
         series: [
             {
                 type: 'pie',
-                name: 'Language',
-                data: [
-                    ['Java', 20],
-                    ['Javascript', 3],
-                    ['Python', 4],
-                    ['Ruby', 18],
-                    ['Objective-C', 2]
-                ]
+                name: series_name,
+                data: series_data
             }
         ]
     });
 }
-
 $(document).ready(function () {
-    init_high_charts();
     activate_nav_links();
 });

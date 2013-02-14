@@ -26,76 +26,16 @@
   <div class="charts" id="language-container"></div>
   <div class="charts" id="tech-container"></div>
 </div>
-<% javascript_tag %>
 <script type="text/javascript" src="highcharts.js"></script>
 <script type="text/javascript">
-    $(function () {
-        new Highcharts.Chart({
-            chart: {renderTo: 'language-container'},
-            title: {text: 'Project count based on Programming languages'},
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-                percentageDecimals: 1
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'hand',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function () {
-                            return '<b>' + this.point.name + '</b>: ' + Math.round(this.percentage * 10) / 10 + ' %';
-                        }
-                    }
-                }
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Language',
-                    data: [
-                        <%@language_array.each do |d|%>
-                        <%=raw d %>,
-                        <%end%>
-                    ]
-                }
-            ]
-        });
-    });
-
-    $(function () {
-        new Highcharts.Chart({
-            chart: {renderTo: 'tech-container'},
-            title: {text: 'Technology share about which User answers in StackOverflow'},
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-                percentageDecimals: 1
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'hand',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function () {
-                            return '<b>' + this.point.name + '</b>: ' + Math.round(this.percentage * 10) / 10 + ' %';
-                        }
-                    }
-                }
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Language',
-                    data: <%=@stack_overflow.tags.html_safe%>
-                }
-            ]
-        });
-    });
+    init_high_charts();
+    language_data = [
+        <%@language_array.each do |d|%>
+        <%=raw d %>,
+        <%end%>
+    ];
+    draw_chart('language-container', 'Project count based on Programming languages', 'Language', language_data);
+    draw_chart('tech-container', 'Technology share about which User answers in StackOverflow', 'Technology', <%=@stack_overflow.tags.html_safe%>);
 </script>
 
 
