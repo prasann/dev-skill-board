@@ -32,8 +32,7 @@ class LinkedInController < ApplicationController
     token = Site.access_token_for(Site::PROVIDERS[:linkedin])
     linked_in_token = access_token(token)
     response_json = linked_in_token.get('/v1/people/~:(positions,skills,educations)?format=json').body
-    binding.pry
-    render :json => response.body
+    render :json => response_json
   end
 
   def access_token(token)

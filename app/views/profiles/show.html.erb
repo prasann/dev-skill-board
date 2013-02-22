@@ -48,9 +48,13 @@
   </div>
   <div id="linked-in" class="unit_provider">
     <div class="title">LinkedIn</div>
-    <%= image_tag("stack-overflow.png", :title => 'LinkedIn', :alt => "LinkedIn") %>
+    <%= image_tag("linkedIn.png", :title => 'LinkedIn', :alt => "LinkedIn",:size => "128x128") %>
     <div class="status">
-      <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>
+      <% if @providers.present? and @providers.include?(Site::PROVIDERS[:linkedin]) %>
+          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+      <% else %>
+          <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
