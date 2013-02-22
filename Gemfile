@@ -11,6 +11,8 @@ gem "github_api"
 gem "rails_config"
 gem 'dynamic_form'
 gem "paperclip", "~> 3.0"
+gem 'oauth2'
+gem 'json'
 
 group :assets do
   gem "sass-rails"

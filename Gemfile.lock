@@ -210,6 +210,8 @@ DEPENDENCIES
   github_api
   httparty
   jquery-rails
+  json
+  oauth2
   omniauth-google-oauth2
   paperclip (~> 3.0)
   pg

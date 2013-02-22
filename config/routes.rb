@@ -13,6 +13,10 @@ Dashboard::Application.routes.draw do
   match 'github/success', :to => 'github#success'
   match 'github/profile', :to => 'github#profile'
 
+  match 'linkedin/index', :to => 'linked_in#index'
+  match 'linkedin/callback', :to => 'linked_in#callback'
+  match 'linkedin/success', :to => 'linked_in#success'
+
   match 'stack_overflow/add', :to => 'stack_overflow#add'
   post 'stack_overflow/create', :to => 'stack_overflow#create'
   match 'stack_overflow/stats', :to => 'stack_overflow#populate_stats'

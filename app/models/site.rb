@@ -4,6 +4,7 @@ class Site < ActiveRecord::Base
   PROVIDERS = {
       :github => "Github",
       :stackoverflow => "StackOverflow",
+      :linkedin => "LinkedIn"
   }
 
   def self.persist_provider(provider, access_token)
