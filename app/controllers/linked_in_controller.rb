@@ -21,8 +21,6 @@ class LinkedInController < ApplicationController
 
   def callback
     code = params[:code]
-    state = params[:state]
-
     token = client.auth_code.get_token(code, :redirect_uri => REDIRECT_URI)
     Site.persist_provider(Site::PROVIDERS[:linkedin], token.token)
     redirect_to linkedin_success_path
@@ -33,7 +31,7 @@ class LinkedInController < ApplicationController
     linked_in_token = access_token(token)
     response_json = linked_in_token.get('/v1/people/~:(positions,skills,educations)?format=json').body
     LinkedIn.create_linked_in(response_json)
-    render :json => response_json
+    redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 
   def access_token(token)

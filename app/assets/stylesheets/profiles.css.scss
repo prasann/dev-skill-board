@@ -100,8 +100,8 @@
 
 #wall_container {
   padding-left: 20px;
-  .charts{
-    clear:both;
+  .charts {
+    clear: both;
   }
   .sticky {
     padding-top: 75px;
@@ -126,5 +126,19 @@
       margin-left: 10px;
       margin-right: 10px;
     }
+  }
+  .tag-clouds {
+    height: 300px;
+    width: 300px;
+  }
+
+  .data-table {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .tag-cloud {
+    margin-left: 25%;
+    float: left;
+    clear:both;
   }
 }

@@ -6,6 +6,8 @@
   <title><%= content_for?(:title) ? yield(:title) : "Dev Skill Board" %></title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "d3" %>
+  <%= javascript_include_tag "d3.layout.cloud" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

@@ -1,4 +1,4 @@
-<div id="wall_container">
+<div id="wall_container" xmlns="http://www.w3.org/1999/html">
   <% unless @gitrepos.empty? %>
       <div class="sticky">
         <div class="highlight"><%= @gitrepos.length %></div>
@@ -28,11 +28,53 @@
         <div class="text">answers in StackOverflow</div>
       </div>
   <% end %>
-
+  <% if @linked_ins.present? %>
+      <div class="clear">
+        <% @linked_ins.linked_in_positions.each do |position| %>
+            <div class="title"><strong>Professional Experience</strong></div>
+            <table class="table table-bordered data-table">
+              <tbody>
+              <tr>
+                <td>
+                  <div><strong><%= position.company_name %></strong></div>
+                  <div class="greyed"><em><%= position.company_industry %></em></div>
+                </td>
+                <td>
+                  <div><strong><%= position.title %></strong></div>
+                  <div class="smaller greyed"><em><%= position.summary %></em></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+        <% end %>
+      </div>
+      <div>
+        <% @linked_ins.linked_in_educations.each do |education| %>
+            <div class="title"><strong>Education Qualifications</strong></div>
+            <table class="table table-bordered data-table">
+              <tbody>
+              <tr>
+                <td class="center">
+                  <div><strong><%= education.schoolName %></strong></div>
+                </td>
+                <td>
+                  <div><strong><%= education.degree %></strong></div>
+                  <div><em><%= education.fieldOfStudy %></em></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+        <% end %>
+        <div id="skill-cloud-container" class="tag-cloud">
+          <div class="title"><strong>Endorsed Skills</strong></div>
+        </div>
+      </div>
+  <% end %>
   <div class="charts" id="language-container"></div>
   <div class="charts" id="tech-container"></div>
 </div>
 <script type="text/javascript" src="highcharts.js"></script>
+
 <script type="text/javascript">
     init_high_charts();
     language_data = [
@@ -46,5 +88,51 @@
     <%end%>
     <% if @stack_overflow.present? %>
     draw_chart('tech-container', 'Technology share about which User answers in StackOverflow', 'Technology', <%=@stack_overflow.tags.html_safe%>);
+    <%end%>
+</script>
+<script type="text/javascript">
+    <% if @linked_ins.present? %>
+    var fill = d3.scale.category10();
+    d3.layout.cloud().size([500, 300])
+            .words([
+                <%@linked_ins.skills.split(',').each do |d|%>
+                "<%=raw d %>",
+                <%end%>
+            ].map(function (d) {
+                        return {text: d, size: 30};
+                    }))
+            .rotate(function () {
+                return 0;
+            })
+            .font("Verdana")
+            .fontSize(function (d) {
+                return d.size;
+            })
+            .on("end", draw)
+            .start();
+    function draw(words) {
+        d3.select("#skill-cloud-container").append("svg")
+                .attr("width", 500)
+                .attr("height", 300)
+                .append("g")
+                .attr("transform", "translate(200,150)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function (d) {
+                    return d.size + "px";
+                })
+                .style("font-family", "Verdana")
+                .style("fill", function (d, i) {
+                    return fill(i);
+                })
+                .attr("text-anchor", "middle")
+                .attr("transform", function (d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function (d) {
+                    return d.text;
+                });
+    }
     <%end%>
 </script>

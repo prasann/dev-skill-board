@@ -4,7 +4,8 @@ class LinkedIn < ActiveRecord::Base
 
   def self.create_linked_in(json_txt)
     json = JSON.parse(json_txt)
-    linked_in = LinkedIn.create({:skills => skills(json)})
+    linked_in = LinkedIn.create({:user_id => User.current.id,
+                                 :skills => skills(json)})
     LinkedInEducation.create_educations_from_hash(linked_in.id, json["educations"]["values"])
     LinkedInPosition.create_positions_from_hash(linked_in.id, json["positions"]["values"])
   end

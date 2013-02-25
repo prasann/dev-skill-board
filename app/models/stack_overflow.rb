@@ -1,5 +1,5 @@
 class StackOverflow < ActiveRecord::Base
-  def self.create_instance_for(user_id)
+  def self.create_instance_for
     token = Site.access_token_for(Site::PROVIDERS[:stackoverflow])
     reputation = StackOverflowAPI.get_user_reputation(token)
     question_count = StackOverflowAPI.get_questions_count(token)

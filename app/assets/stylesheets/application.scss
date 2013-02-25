@@ -37,8 +37,8 @@
   }
 }
 
-#sign_up_div{
-  margin-left:15px;
+#sign_up_div {
+  margin-left: 15px;
 }
 
 #signin_separator {
@@ -55,6 +55,14 @@ body {
 
 #content_area {
   background: white repeat;
+}
+
+.greyed {
+  color: dimgrey;
+}
+
+.smaller {
+  font-size: 80%;
 }
 
 #sign_in_div {
@@ -84,4 +92,16 @@ body {
   .contents {
     padding: 0 5px 5px 5px;
   }
+}
+
+.title {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #3E576F;
+  text-align: center;
+  margin: 2px;
+}
+
+.clear{
+  clear:both;
 }
