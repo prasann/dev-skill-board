@@ -13,6 +13,7 @@ gem 'dynamic_form'
 gem "paperclip", "~> 3.0"
 gem 'oauth2'
 gem 'json'
+gem 'feedzirra'
 
 group :assets do
   gem "sass-rails"

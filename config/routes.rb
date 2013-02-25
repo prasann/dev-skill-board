@@ -21,6 +21,10 @@ Dashboard::Application.routes.draw do
   post 'stack_overflow/create', :to => 'stack_overflow#create'
   match 'stack_overflow/stats', :to => 'stack_overflow#populate_stats'
 
+  match 'feeds/add', :to => 'feeds#add'
+  post 'feeds/create', :to => 'feeds#create'
+  match 'feeds/stats', :to => 'feeds#stats'
+
   match ':username/profile', :to => 'profiles#show', :as => 'friendly_profile'
   match ':username', :to => 'walls#index', :as => 'friendly_wall'
 end

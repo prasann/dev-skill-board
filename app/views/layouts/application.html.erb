@@ -14,7 +14,7 @@
 <div class="container" id="content_area">
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-      <a class="brand" href="#">DevSkillBoard</a>
+      <a class="brand" href="/">DevSkillBoard</a>
       <ul class="nav">
         <% if current_user.try(:profile).present? %>
             <li id="profile_nav_link"><%= link_to "Profile", friendly_profile_path(current_user.profile.user_name) %></li>

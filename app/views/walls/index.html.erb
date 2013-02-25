@@ -28,6 +28,18 @@
         <div class="text">answers in StackOverflow</div>
       </div>
   <% end %>
+  <% if @blog.present? %>
+      <div class="clear">
+        <div class="title"><a href="<%= @blog.link %>"><%= @blog.title %></a></div>
+        <% @blog.blog_items[0..3].each do |blog_item| %>
+            <div class="blog_item">
+              <div><strong><%= blog_item.title %></strong></div>
+              <div><em><%= blog_item.categories %></em></div>
+              <div class="smaller"><%= blog_item.description.html_safe %></div>
+            </div>
+        <% end %>
+      </div>
+  <% end %>
   <% if @linked_ins.present? %>
       <div class="clear">
         <% @linked_ins.linked_in_positions.each do |position| %>

@@ -48,12 +48,23 @@
   </div>
   <div id="linked-in" class="unit_provider">
     <div class="title">LinkedIn</div>
-    <%= image_tag("linkedIn.png", :title => 'LinkedIn', :alt => "LinkedIn",:size => "128x128") %>
+    <%= image_tag("linkedIn.png", :title => 'LinkedIn', :alt => "LinkedIn", :size => "128x128") %>
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:linkedin]) %>
           <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
       <% else %>
           <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div id="rss-feed" class="unit_provider">
+    <div class="title">Blog RSS</div>
+    <%= image_tag("rss.png", :title => 'BlogRSS', :alt => "BlogRSS", :size => "128x128") %>
+    <div class="status">
+      <% if @providers.present? and @providers.include?(Site::PROVIDERS[:rssfeed]) %>
+          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+      <% else %>
+          <%= link_to "Add", feeds_add_path, :class => "btn btn-primary" %>
       <% end %>
     </div>
   </div>

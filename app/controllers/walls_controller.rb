@@ -4,11 +4,16 @@ class WallsController < ApplicationController
     language_classification
     stack_overflow_info
     linked_in_info
+    feed_info
   end
 
   private
   def linked_in_info
     @linked_ins = LinkedIn.find_by_user_id(current_user.id)
+  end
+
+  def feed_info
+    @blog = Blog.includes(:blog_items).find_by_user_id(current_user.id)
   end
 
   def language_classification
