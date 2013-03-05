@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130225100051) do
 
   create_table "blog_items", :force => true do |t|
+    t.string   "guid"
     t.integer  "blog_id"
     t.string   "title"
     t.string   "categories"

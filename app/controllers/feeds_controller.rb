@@ -10,8 +10,7 @@ class FeedsController < ApplicationController
 
   def stats
     feed_url = Site.access_token_for(Site::PROVIDERS[:rssfeed])
-    feed = Feedzirra::Feed.fetch_and_parse(feed_url)
-    Blog.create_feed_entry(feed)
+    Blog.create_feed_entry(feed_url)
     redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 

@@ -1,14 +1,18 @@
 class BlogItem < ActiveRecord::Base
   belongs_to :blog
 
-  def self.create_items(blog, feed)
-    feed.entries.each do |entry|
-      BlogItem.create!({
-                           :blog_id => blog.id,
-                           :title => entry.title,
-                           :description => entry.summary,
-                           :categories => entry.categories.join(',')
-                       })
+  def self.add_entries(blog, entries)
+    entries.each do |entry|
+      binding.pry
+      unless BlogItem.find_by_guid_and_blog_id(entry.id, blog.id).present?
+        create!(
+            :blog_id => blog.id,
+            :title => entry.title,
+            :description => entry.summary,
+            :categories => entry.categories.join(','),
+            :guid => entry.id
+        )
+      end
     end
   end
 end
