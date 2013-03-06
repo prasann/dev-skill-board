@@ -9,11 +9,16 @@ class Site < ActiveRecord::Base
   }
 
   def self.persist_provider(provider, access_token)
-    Site.create!({
-                     :profile_id => current_profile,
-                     :provider => provider,
-                     :access_token => access_token
-                 })
+    site = find_or_create_by_profile_id_and_provider(current_profile, provider)
+    site.update_attributes!({
+                                :access_token => access_token,
+                                :last_sync_time => DateTime.now
+                            })
+  end
+
+  def update_site_access
+    self.last_sync_time = DateTime.now
+    self.save!
   end
 
   def self.access_token_for(provider)

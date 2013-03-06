@@ -9,7 +9,7 @@ class GithubController < ApplicationController
     access_token = Site.access_token_for(Site::PROVIDERS[:github])
     github = Github.new :oauth_token => access_token
     repo_json = github.repos.list
-    GithubRepos.create(repo_json)
+    GithubRepos.update_repos(repo_json)
     redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 

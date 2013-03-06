@@ -98,8 +98,9 @@ ActiveRecord::Schema.define(:version => 20130225100051) do
     t.integer  "profile_id"
     t.string   "provider"
     t.string   "access_token"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "last_sync_time"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "stack_overflows", :force => true do |t|

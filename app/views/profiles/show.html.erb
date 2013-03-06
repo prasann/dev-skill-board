@@ -30,6 +30,9 @@
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>
           <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="update_time_text">
+            Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:github], @sites)) %> ago
+          </div>
       <% else %>
           <%= link_to "Authorize", github_authorize_path, :class => "btn btn-primary" %>
       <% end %>
@@ -41,6 +44,9 @@
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:stackoverflow]) %>
           <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="update_time_text">
+            Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:stackoverflow], @sites)) %> ago
+          </div>
       <% else %>
           <%= link_to "Add", stack_overflow_add_path, :class => "btn btn-primary" %>
       <% end %>
@@ -52,6 +58,9 @@
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:linkedin]) %>
           <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="update_time_text">
+            Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:linkedin], @sites)) %> ago
+          </div>
       <% else %>
           <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>
       <% end %>
@@ -63,6 +72,9 @@
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:rssfeed]) %>
           <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="update_time_text">
+            Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:rssfeed], @sites)) %> ago
+          </div>
       <% else %>
           <%= link_to "Add", feeds_add_path, :class => "btn btn-primary" %>
       <% end %>

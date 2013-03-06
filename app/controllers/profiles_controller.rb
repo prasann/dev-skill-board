@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
     redirect_to new_profile_path and return if no_profile_found
     redirect_to friendly_profile_path(Profile.find_by_user_id(current_user.id).user_name) and return if params[:username].nil?
     @profile = Profile.find_by_user_name(params[:username]) if params[:username].present?
+    @sites = @profile.sites
     @providers = @profile.sites.collect(&:provider) if @profile.sites.present?
   end
 

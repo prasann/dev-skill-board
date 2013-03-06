@@ -4,6 +4,7 @@ class CreateSites < ActiveRecord::Migration
       t.references :profile
       t.string :provider
       t.string :access_token
+      t.time :last_sync_time
       t.timestamps
     end
   end
