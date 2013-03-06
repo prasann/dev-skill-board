@@ -45,17 +45,19 @@ ActiveRecord::Schema.define(:version => 20130225100051) do
 
   create_table "linked_in_educations", :force => true do |t|
     t.integer  "linked_in_id"
+    t.integer  "edu_id_frm_api"
     t.string   "degree"
     t.string   "schoolName"
     t.string   "fieldOfStudy"
     t.string   "startDate"
     t.string   "endDate"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "linked_in_positions", :force => true do |t|
     t.integer  "linked_in_id"
+    t.integer  "position_id_frm_api"
     t.string   "company_name"
     t.string   "company_industry"
     t.boolean  "is_current"
@@ -63,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20130225100051) do
     t.string   "endDate"
     t.string   "title"
     t.string   "summary"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "linked_ins", :force => true do |t|
@@ -98,9 +100,8 @@ ActiveRecord::Schema.define(:version => 20130225100051) do
     t.integer  "profile_id"
     t.string   "provider"
     t.string   "access_token"
-    t.datetime "last_sync_time"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "stack_overflows", :force => true do |t|

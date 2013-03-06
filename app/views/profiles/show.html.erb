@@ -29,9 +29,13 @@
     <%= image_tag("octocat_fluid.png", :title => 'GitHub', :alt => "GitHub") %>
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:github]) %>
-          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="added_success">
+            <%= image_tag("tick.png", :title => 'Added', :alt => "Added") %>
+            Added
+          </div>
           <div class="update_time_text">
             Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:github], @sites)) %> ago
+            <%= link_to "Update", github_success_path, :class => "btn btn-info btn-mini" %>
           </div>
       <% else %>
           <%= link_to "Authorize", github_authorize_path, :class => "btn btn-primary" %>
@@ -43,9 +47,13 @@
     <%= image_tag("stack-overflow.png", :title => 'StackOverflow', :alt => "StackOverflow") %>
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:stackoverflow]) %>
-          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="added_success">
+            <%= image_tag("tick.png", :title => 'Added', :alt => "Added") %>
+            Added
+          </div>
           <div class="update_time_text">
             Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:stackoverflow], @sites)) %> ago
+            <%= link_to "Update", stack_overflow_stats_path, :class => "btn btn-info btn-mini" %>
           </div>
       <% else %>
           <%= link_to "Add", stack_overflow_add_path, :class => "btn btn-primary" %>
@@ -57,9 +65,13 @@
     <%= image_tag("linked_in.png", :title => 'LinkedIn', :alt => "LinkedIn", :size => "128x128") %>
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:linkedin]) %>
-          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="added_success">
+            <%= image_tag("tick.png", :title => 'Added', :alt => "Added") %>
+            Added
+          </div>
           <div class="update_time_text">
             Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:linkedin], @sites)) %> ago
+            <%= link_to "Update", 'javascript:void(0)', :class => "btn btn-info btn-mini" %>
           </div>
       <% else %>
           <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>
@@ -71,9 +83,13 @@
     <%= image_tag("rss.png", :title => 'BlogRSS', :alt => "BlogRSS", :size => "128x128") %>
     <div class="status">
       <% if @providers.present? and @providers.include?(Site::PROVIDERS[:rssfeed]) %>
-          <%= link_to "Added", 'javascript:void(0)', :class => "btn btn-success" %>
+          <div class="added_success">
+            <%= image_tag("tick.png", :title => 'Added', :alt => "Added") %>
+            Added
+          </div>
           <div class="update_time_text">
             Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:rssfeed], @sites)) %> ago
+            <%= link_to "Update", 'javascript:void(0)', :class => "btn btn-info btn-mini" %>
           </div>
       <% else %>
           <%= link_to "Add", feeds_add_path, :class => "btn btn-primary" %>

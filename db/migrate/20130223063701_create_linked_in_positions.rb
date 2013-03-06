@@ -2,6 +2,7 @@ class CreateLinkedInPositions < ActiveRecord::Migration
   def change
     create_table :linked_in_positions do |t|
       t.references :linked_in
+      t.integer :position_id_frm_api
       t.string :company_name
       t.string :company_industry
       t.boolean :is_current

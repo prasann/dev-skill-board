@@ -11,7 +11,7 @@ class StackOverflowController < ApplicationController
 
   def populate_stats
     return unless Site.is_access_token_present?(Site::PROVIDERS[:stackoverflow])
-    StackOverflow.create_instance_for
+    StackOverflow.update_so_instance
     redirect_to friendly_wall_path(current_user.profile.user_name)
   end
 

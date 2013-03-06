@@ -3,7 +3,6 @@ class BlogItem < ActiveRecord::Base
 
   def self.add_entries(blog, entries)
     entries.each do |entry|
-      binding.pry
       unless BlogItem.find_by_guid_and_blog_id(entry.id, blog.id).present?
         create!(
             :blog_id => blog.id,
