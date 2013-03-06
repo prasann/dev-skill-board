@@ -106,13 +106,20 @@ body {
   clear: both;
 }
 
-#so-text{
+#so-text {
   margin-top: 20px;
   margin-left: 20px;
-  input[type="text"]{
+  input[type="text"] {
     margin-top: 10px;
   }
 }
+
+#add-feed {
+  input[type="text"] {
+    margin-top: 10px;
+  }
+}
+
 .stack-id-helper {
   margin: 10px;
   background-color: lavender;
