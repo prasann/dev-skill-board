@@ -71,7 +71,7 @@
           </div>
           <div class="update_time_text">
             Updated <%= time_ago_in_words(get_site_for(Site::PROVIDERS[:linkedin], @sites)) %> ago
-            <%= link_to "Update", 'javascript:void(0)', :class => "btn btn-info btn-mini" %>
+            <%= link_to "Update", linkedin_success_path, :class => "btn btn-info btn-mini" %>
           </div>
       <% else %>
           <%= link_to "Add", linkedin_index_path, :class => "btn btn-primary" %>

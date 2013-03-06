@@ -21,8 +21,9 @@ class Blog < ActiveRecord::Base
   end
 
   def self.wait_for_the_feed_to_return(feed)
-    while feed == nil do
-      sleep
+    i=0
+    while feed == nil || i==10 do
+      sleep(i+=1)
     end
   end
 

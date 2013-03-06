@@ -15,13 +15,10 @@ class Site < ActiveRecord::Base
                            })
   end
 
-  def update_site_access
-    self.last_sync_time = DateTime.now
-    self.save!
-  end
-
   def self.access_token_for(provider)
-    get_site_token(provider).access_token
+    site = get_site_token(provider)
+    site.touch
+    site.access_token
   end
 
   def self.is_access_token_present?(provider)
