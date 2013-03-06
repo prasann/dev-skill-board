@@ -4,6 +4,7 @@ class GithubController < ApplicationController
   def profile
     @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
   end
+
   def success
     access_token = Site.access_token_for(Site::PROVIDERS[:github])
     github = Github.new :oauth_token => access_token

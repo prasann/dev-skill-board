@@ -102,6 +102,25 @@ body {
   margin: 2px;
 }
 
-.clear{
-  clear:both;
+.clear {
+  clear: both;
+}
+
+#so-text{
+  margin-top: 20px;
+  margin-left: 20px;
+  input[type="text"]{
+    margin-top: 10px;
+  }
+}
+.stack-id-helper {
+  margin: 10px;
+  background-color: lavender;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 5px;
+  .stack-ques {
+    font-weight: bold;
+    font-style: italic;
+  }
 }

@@ -1,6 +1,16 @@
-<h1>StackOverflow</h1>
-<div>Enter your stackoverflow User Id:</div>
-<form action="/stack_overflow/create" method="POST">
-  <input type="text" name="so_user_id"/>
-  <input type="submit" class="btn btn-primary" value="Add">
-</form>
+<div class="center"><h3>Add Your StackOverflow Account</h3></div>
+<div class="stack-id-helper">
+  <div class="stack-ques">Where can i find my StackOverflow User Id?</div>
+  <div class="stack-id-text">Go to your Stackoverflow profile page and look out for the number as pointed in the image
+    below.
+  </div>
+  <%= image_tag("stack_overflow_user_id.png", :title => 'UserId', :alt => "SO-UserId") %>
+</div>
+<div id="so-text">
+  <form action="/stack_overflow/create" method="POST">
+    Enter your StackOverflow UserID
+    <input type="text" placeholder="StackOverflow UserID" name="so_user_id"/>
+    <input type="submit" class="btn btn-primary" value="Add">
+  </form>
+</div>
+
