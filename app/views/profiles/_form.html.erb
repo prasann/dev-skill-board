@@ -1,5 +1,9 @@
 <%= form_for @profile do |f| %>
-    <%= f.error_messages %>
+    <% if f.error_messages.present? %>
+        <div id="error_explanation">
+          <%= f.error_messages %>
+        </div>
+    <% end %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.label :user_name %>

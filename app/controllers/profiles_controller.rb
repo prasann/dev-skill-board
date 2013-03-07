@@ -12,9 +12,10 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create!(params[:profile].
+    @profile = Profile.create(params[:profile].
                                    merge({:user_id => current_user.id}))
-    redirect_to profile_path(@profile)
+    redirect_to profile_path(@profile) if @profile.errors.empty?
+    redirect_to new_profile_path
   end
 
   def show

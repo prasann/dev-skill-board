@@ -9,4 +9,5 @@ class Profile < ActiveRecord::Base
                     :styles => {:medium => "850x350>"}
 
   validates_presence_of :user_name, :email
+  validates_uniqueness_of :user_name
 end
