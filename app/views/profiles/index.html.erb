@@ -1,16 +1,15 @@
 <div id="profile_list">
   <% @profiles.each do |profile| %>
       <div class="profile_thumb">
+
         <div class="profile_image">
-          <%= image_tag(profile.avatar.url(:thumb), :id => 'profile_image') %>
+          <%= link_to image_tag(profile.avatar.url(:thumb), :id => 'profile_image'), friendly_profile_path(profile.user_name) %>
         </div>
+
         <div class="profile_name">
-          <%= profile.name %>
+          <%= link_to profile.name, friendly_profile_path(profile.user_name) %>
         </div>
         <div class="profile_role_city"><%= profile.role %> <%= profile.city %></div>
-        <div class="profile_link">
-          <%= link_to "View Profile", friendly_profile_path(profile.user_name), :class => "btn btn-primary" %>
-        </div>
       </div>
   <% end %>
 </div>
