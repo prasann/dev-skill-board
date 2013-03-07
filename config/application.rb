@@ -56,6 +56,7 @@ module Dashboard
     config.active_record.whitelist_attributes = false
 
     # Enable the asset pipeline
+    config.assets.compile = true
     config.assets.enabled = true
 
     # Heroku REQUIRES this to be false
