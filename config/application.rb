@@ -56,7 +56,6 @@ module Dashboard
     config.active_record.whitelist_attributes = false
 
     # Enable the asset pipeline
-    config.assets.compile = true
     config.assets.enabled = true
     config.serve_static_assets = true
     config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
