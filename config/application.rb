@@ -59,6 +59,8 @@ module Dashboard
     config.assets.compile = true
     config.assets.enabled = true
     config.serve_static_assets = true
+    config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
+
     # Heroku REQUIRES this to be false
     config.assets.initialize_on_precompile = false
 
