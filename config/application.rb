@@ -58,6 +58,19 @@ module Dashboard
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Heroku REQUIRES this to be false
+    config.assets.initialize_on_precompile = false
+
+    # Not required, but a good best-practice for performance.
+    # This setting will compress your assets as much as possible using YUI and Uglifier by default
+    config.assets.compress = true
+
+    # Allow fingerprinting of asset filenames - good for caching.
+    config.assets.digest = true
+
+    # Configure the sendfile headers for Heroku.  "X-Accel-Redirect" is also a good value for this since Heroku use Nginx.
+    config.action_dispatch.x_sendfile_header = nil
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.to_prepare do
