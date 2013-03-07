@@ -1,6 +1,7 @@
 class WallsController < ApplicationController
   def index
-    @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
+    @profile = Profile.find_by_user_name(params[:username])
+    @gitrepos = GithubRepo.find_all_by_user_id(@profile.user_id)
     language_classification
     stack_overflow_info
     linked_in_info
@@ -9,11 +10,11 @@ class WallsController < ApplicationController
 
   private
   def linked_in_info
-    @linked_ins = LinkedIn.find_by_user_id(current_user.id)
+    @linked_ins = LinkedIn.find_by_user_id(@profile.user_id)
   end
 
   def feed_info
-    @blog = Blog.includes(:blog_items).find_by_user_id(current_user.id)
+    @blog = Blog.includes(:blog_items).find_by_user_id(@profile.user_id)
   end
 
   def language_classification
@@ -24,7 +25,7 @@ class WallsController < ApplicationController
   end
 
   def stack_overflow_info
-    @stack_overflow = StackOverflow.find_by_user_id(current_user.id)
+    @stack_overflow = StackOverflow.find_by_user_id(@profile.user_id)
   end
 end
 
