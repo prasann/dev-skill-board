@@ -13,6 +13,32 @@
  *= require_tree .
  */
 
+#profile_list {
+  .profile_thumb {
+    margin: 20px;
+    border: 1px solid #000000;
+    padding: 10px;
+    -webkit-box-shadow: 0 0 15px #888;
+    box-shadow: 0 0 15px #888;
+    -moz-box-shadow: 0px 0px 15px #888;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    float: left;
+    width: 375px;
+    .profile_image {
+      float: left;
+      margin-right: 5px;
+    }
+    .profile_name {
+      font-weight: bold;
+      font-size: 120%;
+    }
+    .profile_link {
+      margin-top: 10px;
+    }
+  }
+}
+
 #google_auth_signin {
   margin-bottom: 10px;
 }
@@ -203,6 +229,25 @@ body {
     }
   }
 
+}
+
+#no_services_added {
+  clear: both;
+  .image_container {
+    float: left;
+    padding-top: 30px;
+    padding-left: 40px;
+  }
+  .text_msg {
+    float: left;
+    color: grey;
+    font-style: italic;
+    line-height: 1.5;
+    width: 550px;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 175%;
+  }
 }
 
 #providers {

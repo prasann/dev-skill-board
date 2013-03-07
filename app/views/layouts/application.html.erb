@@ -19,6 +19,7 @@
         <% if current_user.try(:profile).present? %>
             <li id="profile_nav_link"><%= link_to "Profile", friendly_profile_path(current_user.profile.user_name) %></li>
             <li id="wall_nav_link"><%= link_to "Wall", friendly_wall_path(current_user.profile.user_name) %></li>
+            <li id="list_nav_link"><%= link_to "Users", profiles_path %></li>
         <% end %>
       </ul>
       <ul class="nav pull-right">

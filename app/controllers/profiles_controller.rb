@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
   before_filter :load_profile, :only => [:edit, :update, :delete]
   skip_filter :create_profile, :only => [:new, :create]
 
+  def index
+    @profiles = Profile.all
+  end
 
   def new
     @profile = Profile.new({
@@ -13,9 +16,9 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.create(params[:profile].
-                                   merge({:user_id => current_user.id}))
-    redirect_to profile_path(@profile) if @profile.errors.empty?
-    redirect_to new_profile_path
+                                  merge({:user_id => current_user.id}))
+    redirect_to profile_path(@profile) and return if @profile.errors.empty?
+    render :action => 'new'
   end
 
   def show

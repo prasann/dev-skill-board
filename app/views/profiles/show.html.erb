@@ -104,8 +104,14 @@
       </div>
   <% else %>
       <% if @providers.nil? %>
-          <div id="providers">
-            No Services Added
+          <div id="no_services_added">
+            <div class="image_container">
+              <%= image_tag("sad.png", :title => 'NoService', :alt => "NoService") %>
+            </div>
+            <div class="text_msg">
+              Oops, there are no services attached with this profile. Need to have at least one service to view the
+              wall.
+            </div>
           </div>
       <% else %>
           <h3>Added Accounts</h3>
