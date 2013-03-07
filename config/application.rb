@@ -58,7 +58,8 @@ module Dashboard
     # Enable the asset pipeline
     config.assets.compile = true
     config.assets.enabled = true
-
+    config.assets.precompile += %w( *.css *.js )
+    config.serve_static_assets = true
     # Heroku REQUIRES this to be false
     config.assets.initialize_on_precompile = false
 
