@@ -14,6 +14,7 @@ gem "paperclip", "~> 3.0"
 gem 'oauth2'
 gem 'json'
 gem 'feedzirra'
+gem 'cancan'
 
 group :assets do
   gem "sass-rails"

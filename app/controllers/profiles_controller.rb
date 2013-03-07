@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
                                :email => current_user.email,
                                :user_name => current_user.email.split('@')[0]
                            })
-
   end
 
   def create
@@ -24,6 +23,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by_user_name(params[:username]) if params[:username].present?
     @sites = @profile.sites
     @providers = @profile.sites.collect(&:provider) if @profile.sites.present?
+    authorize! :read, @profile
   end
 
   def no_profile_found
@@ -31,14 +31,17 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    authorize! :edit, @profile
   end
 
   def update
+    authorize! :update, @profile
     @profile.update_attributes(params[:profile])
     redirect_to profile_path(@profile)
   end
 
   def delete
+    authorize! :delete, @profile
     @profile.delete
     redirect_to profile_path(@profile)
   end
