@@ -250,6 +250,13 @@ body {
 }
 
 #providers {
+  .headers{
+    text-align: center;
+  }
+  .wall_link{
+    clear:both;
+    margin-left:40%;
+  }
   clear: both;
   .unit_provider {
     margin: 25px;

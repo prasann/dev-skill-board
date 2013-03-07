@@ -114,9 +114,10 @@
             </div>
           </div>
       <% else %>
-          <h3>Added Accounts</h3>
-
           <div id="providers">
+            <div class="wall_link">
+              <%= link_to @profile.name << "'s Wall", friendly_wall_path(@profile.user_name), :class => 'btn btn-primary' %>
+            </div>
             <% if @providers.include?(Site::PROVIDERS[:github]) %>
                 <div id="github" class="unit_provider">
                   <div class="title">GitHub</div>
@@ -144,10 +145,6 @@
                 </div>
             <% end %>
           </div>
-          <div>
-            <%= link_to friendly_wall_path(@profile.user_name), :class => 'btn btn-primary' do %>
-                Wall
-            <% end %>
-          </div>
+
       <% end %>
   <% end %>
