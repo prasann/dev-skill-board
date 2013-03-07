@@ -1,7 +1,7 @@
 class LinkedInController < ApplicationController
   API_KEY = 'zxellbhnw933'
   SECRET_KEY = 'qqCVgR4ny4Sn2tsS'
-  REDIRECT_URI = "http://localhost:3000/linkedin/callback"
+  REDIRECT_URI = "http://dev-board.herokuapp.com/linkedin/callback"
   STATE = SecureRandom.hex(15)
 
   def client
