@@ -4,7 +4,6 @@ class Blog < ActiveRecord::Base
   def self.create_feed_entry(feed_url)
     feed = Feedzirra::Feed.fetch_and_parse(feed_url)
     wait_for_the_feed_to_return(feed)
-    raise_error if feed.nil?
     blog = create_blog_entry(feed)
     BlogItem.add_entries(blog, feed.entries)
   end
@@ -26,6 +25,7 @@ class Blog < ActiveRecord::Base
     while feed == nil && i<=10 do
       sleep(i+=1)
     end
+    raise_error if feed.nil?
   end
 
   def self.raise_error
