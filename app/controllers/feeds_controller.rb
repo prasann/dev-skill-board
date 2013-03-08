@@ -10,8 +10,11 @@ class FeedsController < ApplicationController
 
   def stats
     feed_url = Site.access_token_for(Site::PROVIDERS[:rssfeed])
-    Blog.create_feed_entry(feed_url)
+    begin
+      Blog.create_feed_entry(feed_url)
+    rescue Exception => e
+      redirect_to friendly_profile_path(current_user.profile.user_name), :notice => e.message and return
+    end
     redirect_to friendly_wall_path(current_user.profile.user_name)
   end
-
 end

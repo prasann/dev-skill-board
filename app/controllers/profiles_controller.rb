@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.create(params[:profile].
                                   merge({:user_id => current_user.id}))
     redirect_to profile_path(@profile) and return if @profile.errors.empty?
-    render :action => 'new'
+    redirect_to new_profile_path
   end
 
   def show

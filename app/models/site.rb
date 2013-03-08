@@ -25,6 +25,10 @@ class Site < ActiveRecord::Base
     get_site_token(provider).present?
   end
 
+  def self.delete_feed_entry
+    get_site_token(PROVIDERS[:rssfeed]).delete
+  end
+
   private
   def self.get_site_token(provider)
     Site.find_by_profile_id_and_provider(current_profile, provider)

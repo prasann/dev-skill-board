@@ -26,6 +26,12 @@
       </div>
   <% end %>
 
+  <div style="clear:both"/>
+  <% if flash[:notice] %>
+      <div id="error_explanation">
+        <%= flash[:notice] %>
+      </div>
+  <% end %>
 
   <% if can? :update, @profile %>
       <div id="providers">
