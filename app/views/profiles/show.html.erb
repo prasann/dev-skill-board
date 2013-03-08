@@ -33,7 +33,8 @@
       </div>
   <% end %>
 
-  <% if can? :update, @profile %>
+
+  <% if can? :update, @profile && @profile.user_name.downcase! != 'guest' %>
       <div id="providers">
         <div id="github" class="unit_provider">
           <div class="title">GitHub</div>
