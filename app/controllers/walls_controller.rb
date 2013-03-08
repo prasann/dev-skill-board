@@ -1,7 +1,7 @@
 class WallsController < ApplicationController
   def index
     @profile = Profile.find_by_user_name(params[:username])
-    raise ActionController::RoutingError.new('Not Found') if @profile.nil?
+    raise ActionController::RoutingError.new(params[:username]) if @profile.nil?
     @gitrepos = GithubRepo.find_all_by_user_id(@profile.user_id)
     language_classification
     stack_overflow_info
