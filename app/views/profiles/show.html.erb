@@ -16,8 +16,7 @@
     <div class="email_container"><%= image_tag("mail.png", :class => 'mail', :title => "E-Mail") %>
       <a href="mailto:#"><%= @profile.email %></a></div>
   </div>
-
-  <% if can? :edit, @profile && is_not_guest?%>
+  <% if (can? :edit, @profile) and is_not_guest? %>
       <div id="edit_container">
         <%= link_to edit_profile_path(@profile), :class => 'btn btn-info' do %>
             <i class="icon-edit"></i> Edit Profile
@@ -34,7 +33,7 @@
   <% end %>
 
 
-  <% if can? :update, @profile && is_not_guest? %>
+  <% if (can? :update, @profile) && is_not_guest? %>
       <div id="providers">
         <div id="github" class="unit_provider">
           <div class="title">GitHub</div>
