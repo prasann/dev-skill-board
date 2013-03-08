@@ -17,7 +17,7 @@
       <a href="mailto:#"><%= @profile.email %></a></div>
   </div>
 
-  <% if can? :edit, @profile %>
+  <% if can? :edit, @profile && is_not_guest?%>
       <div id="edit_container">
         <%= link_to edit_profile_path(@profile), :class => 'btn btn-info' do %>
             <i class="icon-edit"></i> Edit Profile
@@ -34,7 +34,7 @@
   <% end %>
 
 
-  <% if can? :update, @profile && @profile.user_name.downcase! != 'guest' %>
+  <% if can? :update, @profile && is_not_guest? %>
       <div id="providers">
         <div id="github" class="unit_provider">
           <div class="title">GitHub</div>

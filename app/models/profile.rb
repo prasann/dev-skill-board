@@ -4,13 +4,14 @@ class Profile < ActiveRecord::Base
   has_attached_file :avatar,
                     :default_url => "/assets/missing_:style.jpg",
                     :storage => :s3,
-                    :s3_credentials => Rails.root.join('config','s3.yml'),
+                    :s3_credentials => Rails.root.join('config', 's3.yml'),
                     :path => "/avatar/:style/:user_name/:filename",
                     :styles => {:medium => "300x300>", :thumb => "100x100>"}
+
   has_attached_file :cover_image,
                     :default_url => ActionController::Base.helpers.asset_path("missing_cover.jpg"),
                     :storage => :s3,
-                    :s3_credentials => Rails.root.join('config','s3.yml'),
+                    :s3_credentials => Rails.root.join('config', 's3.yml'),
                     :path => "/cover/:style/:user_name/:filename",
                     :styles => {:medium => "850x350>"}
 

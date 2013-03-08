@@ -19,10 +19,16 @@
                 <%= f.check_box :remember_me %> Remember Me
             <% end -%>
         <% end -%>
-
         <div class="offset1"><%= f.submit "Sign in", :class => 'btn btn-primary' %></div>
     <% end %>
-
     <%= render "devise/shared/links" %>
+
+    <div class="guest_sign_in">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.hidden_field :email, :value => 'guest@devboard.com' %>
+          <%= f.hidden_field :password, :value => 'password' %>
+          <div class="span"><%= f.submit "Sign in as Guest", :class => 'btn btn-info' %></div>
+    <% end %>
+    </div>
   </div>
 </div>

@@ -98,7 +98,7 @@ body {
 #sign_in_div {
   position: fixed;
   width: 100%;
-  top: 25%;
+  top: 20%;
   min-height: 50%;
   #section {
     background-color: white;
@@ -111,6 +111,11 @@ body {
     left: 35%;
     margin-right: -10%;
     margin-top: 1%;
+  }
+  .guest_sign_in{
+    input[type="submit"]{
+      width: 250px !important;
+    }
   }
 }
 
