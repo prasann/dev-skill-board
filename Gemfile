@@ -15,6 +15,7 @@ gem 'oauth2'
 gem 'json'
 gem 'feedzirra'
 gem 'cancan'
+gem 'aws-sdk', '~> 1.3.4'
 
 group :assets do
   gem "sass-rails"

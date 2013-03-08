@@ -1,0 +1,9 @@
+development:
+    bucket: dev.skill.board
+    access_key_id: AKIAI26U4YU4TKDLUVTA
+    secret_access_key: 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
+
+production:
+    bucket: prod.skill.board
+    access_key_id: AKIAI26U4YU4TKDLUVTA
+    secret_access_key: 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
