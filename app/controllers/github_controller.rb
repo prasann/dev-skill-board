@@ -1,5 +1,5 @@
 class GithubController < ApplicationController
-  CALL_BACK_URL = 'http://dev-board.herokuapp.com/github/callback'
+  CALL_BACK_URL = 'http://localhost:3000/github/callback'
 
   def profile
     @gitrepos = GithubRepo.find_all_by_user_id(current_user.id)
