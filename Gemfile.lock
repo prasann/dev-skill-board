@@ -41,6 +41,7 @@ GEM
       mocha (= 0.10.5)
     builder (3.0.4)
     cancan (1.6.9)
+    choice (0.1.6)
     chunky_png (1.2.7)
     cocaine (0.4.2)
     coderay (1.0.8)
@@ -159,6 +160,11 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     rails_config (0.3.2)
       activesupport (>= 3.0)
     railties (3.2.11)
@@ -182,6 +188,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-graphviz (1.0.8)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -239,6 +246,7 @@ DEPENDENCIES
   pg
   pry
   rails (~> 3.2)
+  rails-erd
   rails_config
   rspec-rails
   sass-rails
